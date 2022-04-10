@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Typography from "@mui/material/Typography";
+import VideoPlayer from "./component/VideoPlayer";
+import Notification from "./component/Notification";
+import Options from "./component/Options";
+import { useStyles } from "./styles/style";
 
-function App() {
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.wrapper}>
+      <AppBar position="static" className={classes.appNav}>
+        <Typography variant="h6">video call</Typography>
+      </AppBar>
+      <VideoPlayer />
+      <Options>
+        <Notification />
+      </Options>
     </div>
   );
-}
-
+};
 export default App;
