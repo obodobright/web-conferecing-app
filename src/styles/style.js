@@ -19,15 +19,16 @@ export const useStyles = makeStyles((theme) => ({
     },
     gridContainer: {
         justifyContent: "center",
-        [theme.breakpoints.down("xs")]: {
-            flexDirection: "column",
-        },
+        display: "flex",
+        // [theme.breakpoints.down("xs")]: {
+        //     flexDirection: "column",
+        // },
     },
     video: {
         width: "500px",
-        [theme.breakpoints.down("xs")]: {
-            width: "300px",
-        },
+        // [theme.breakpoints.down("xs")]: {
+        //     width: "300px",
+        // },
     },
     paper: {
         padding: "10px",
