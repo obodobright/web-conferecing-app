@@ -2,9 +2,10 @@ import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme) => ({
     nav: {
-        background: "whitesmoke",
-        color: "blue",
+        background: "#48a6e5",
+        color: "white",
         padding: "10px",
+        width: "100%",
     },
     boxContainer: {
         display: "flex",
@@ -17,6 +18,9 @@ export const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         listStyle: "none",
-        color: "grey",
+        color: "lightblue",
+        ["@media(max-width:400px)"]: {
+            display: "none",
+        },
     },
 }));

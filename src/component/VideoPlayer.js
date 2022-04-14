@@ -1,32 +1,37 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 import { useStyles } from "../styles/style";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SocketContext } from "../SocketContext";
+
 const VideoPlayer = () => {
   const classes = useStyles();
-  const { myVideo, userVideo, stream, call, acceptCall, callEnded, name } =
+  const { getVideoStream, myVideo, userVideo, stream, call, acceptCall, callEnded, name } =
     useContext(SocketContext);
+
+  useEffect(() => {
+    getVideoStream();
+  }, []);
   return (
     <Grid className={classes.gridContainer}>
       {stream && (
-        <Paper className={classes.paper}>
+        <Box className={classes.paper}>
           <Grid item xs={12} md={16}>
             <Typography variant="h5">{name || "Name"}</Typography>
             <video src="" className={classes.video} autoPlay playsInline muted ref={myVideo} />
           </Grid>
-        </Paper>
+        </Box>
       )}
       {/* my video */}
       {/* user video */}
       {acceptCall && !callEnded && (
-        <Paper className={classes.paper}>
+        <Box className={classes.paper}>
           <Grid item xs={12} md={16}>
             <Typography variant="h5">{name || "Name"}</Typography>
             <video src="" className={classes.video} autoPlay playsInline muted ref={userVideo} />
           </Grid>
-        </Paper>
+        </Box>
       )}
 
       {/* <Paper className={classes.paper}></Paper> */}

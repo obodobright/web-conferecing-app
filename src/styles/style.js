@@ -20,12 +20,10 @@ export const useStyles = makeStyles((theme) => ({
     gridContainer: {
         justifyContent: "center",
         display: "flex",
-        // [theme.breakpoints.down("xs")]: {
-        //     flexDirection: "column",
-        // },
+        flexWrap: "wrap",
     },
     video: {
-        width: "500px",
+        width: "700px",
         // [theme.breakpoints.down("xs")]: {
         //     width: "300px",
         // },

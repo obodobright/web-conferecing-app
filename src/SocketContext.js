@@ -12,22 +12,28 @@ const SocketProvider = ({ children }) => {
   const [acceptCall, setAcceptCall] = useState(false);
   const [callEnded, setCallEnded] = useState(false);
   const [name, setName] = useState("");
+  const [link, setLink] = useState("");
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
-  useEffect(() => {
+  useEffect(() => {}, []);
+
+  const getVideoStream = () => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((currentStream) => {
       setStream(currentStream);
 
       myVideo.current.srcObject = currentStream;
     });
 
-    socket.on("me", (id) => setMe(id));
+    // socket.on("me", (id) => setMe(id));
     socket.on("calluser", ({ from, name: callerName, signal }) => {
       setCall({ isRecievedCall: true, from, name: callerName, signal });
     });
-  }, []);
+  };
 
+  const createLink = () => {
+    return socket.on("me", (id) => setLink(id));
+  };
   const answercall = () => {
     setAcceptCall(true);
     const peer = new Peer({ initiator: false, trickle: false, stream });
@@ -76,6 +82,9 @@ const SocketProvider = ({ children }) => {
         setName,
         callEnded,
         me,
+        createLink,
+        link,
+        getVideoStream,
       }}
     >
       {children}

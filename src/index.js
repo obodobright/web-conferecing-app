@@ -5,8 +5,8 @@ import "./style.css";
 import { SocketProvider } from "./SocketContext";
 
 ReactDom.render(
-  // <SocketProvider>
-  <Apps />,
-  // </SocketProvider>,
+  <SocketProvider>
+    <Apps />
+  </SocketProvider>,
   document.getElementById("root")
 );
