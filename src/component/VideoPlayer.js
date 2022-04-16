@@ -14,7 +14,7 @@ const VideoPlayer = () => {
     getVideoStream();
   }, []);
   return (
-    <Grid className={classes.gridContainer}>
+    <div className={classes.gridContainer}>
       {stream && (
         <Box className={classes.paper}>
           <Grid item xs={12} md={16}>
@@ -35,7 +35,7 @@ const VideoPlayer = () => {
       )}
 
       {/* <Paper className={classes.paper}></Paper> */}
-    </Grid>
+    </div>
   );
 };
 

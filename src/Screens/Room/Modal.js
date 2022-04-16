@@ -14,7 +14,7 @@ const Modal = ({ open, toggleModal, answer, user }) => {
 
   return (
     <ModalComponent>
-      <Container className={styles.Container}>
+      <Box className={styles.Container}>
         <Typography sx={{ textAlign: "center" }}>Tunji wants to join your meeting</Typography>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button variant="contained" sx={{ margin: "5px" }} onClick={handleAnswerCall}>
@@ -24,7 +24,7 @@ const Modal = ({ open, toggleModal, answer, user }) => {
             Reject
           </Button>
         </Box>
-      </Container>
+      </Box>
     </ModalComponent>
   );
 };

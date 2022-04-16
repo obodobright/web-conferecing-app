@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import styles from "./styles.module.css";
 import { SocketContext } from "../../SocketContext";
 import Modal from "./Modal";
+import LinkModal from "./LinkModal";
 
 const Room = () => {
   const { acceptCall, leaveCall, answercall, call } = useContext(SocketContext);
@@ -25,9 +26,7 @@ const Room = () => {
           <Modal open={openModal} toggleModal={toggleModal} answer={answercall} user={call.name} />
         )}
         <VideoPlayer />
-        <Options>
-          <Notification />
-        </Options>
+        <LinkModal />
         <Box className={styles.boxWrapper}>
           <Box className={styles.iconHolder}>
             <KeyboardVoiceIcon />

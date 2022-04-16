@@ -18,12 +18,13 @@ export const useStyles = makeStyles((theme) => ({
         textAlign: "center",
     },
     gridContainer: {
-        justifyContent: "center",
         display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         flexWrap: "wrap",
     },
     video: {
-        width: "700px",
+        width: "500px",
         // [theme.breakpoints.down("xs")]: {
         //     width: "300px",
         // },
